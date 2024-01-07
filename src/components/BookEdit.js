@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-function BookEdit({ book, onEditBook, onToggleEditingMode }) {
+function BookEdit({ book, onSubmit }) {
   const [title, setTitle] = useState(book.title);
 
   function handleChange(event) {
@@ -9,8 +9,12 @@ function BookEdit({ book, onEditBook, onToggleEditingMode }) {
 
   function handleSubmit(event) {
     event.preventDefault();
-    onEditBook(book.id, title);
-    onToggleEditingMode();
+
+    //  A functions that is called when a user submits the form
+    // onEditBook(book.id, title);
+    // onToggleEditingMode();
+
+    onSubmit(book.id, title);
   }
 
   return (

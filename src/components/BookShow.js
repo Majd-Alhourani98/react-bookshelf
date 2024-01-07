@@ -1,7 +1,7 @@
 import { useState } from "react";
 import BookEdit from "./BookEdit";
 
-function BookShow({ book, onDeleteBook }) {
+function BookShow({ book, onDeleteBook, onEditBook }) {
   const [isEditingMode, setIsEditingMode] = useState(false);
 
   function handleDeleteClick() {
@@ -15,7 +15,7 @@ function BookShow({ book, onDeleteBook }) {
   let content = <h3>{book.title}</h3>;
 
   if (isEditingMode) {
-    content = <BookEdit book={book} />;
+    content = <BookEdit book={book} onEditBook={onEditBook} />;
   }
 
   return (

@@ -1,15 +1,34 @@
+import { useState } from "react";
+import BookEdit from "./BookEdit";
+
 function BookShow({ book, onDeleteBook }) {
+  const [isEditingMode, setIsEditingMode] = useState(false);
+
   function handleDeleteClick() {
     onDeleteBook(book.id);
   }
 
+  function toggleEditingMode() {
+    setIsEditingMode(!isEditingMode);
+  }
+
+  let content = <h3>{book.title}</h3>;
+
+  if (isEditingMode) {
+    content = <BookEdit />;
+  }
+
   return (
     <div className="book-show">
-      {book.title}
+      {content}
 
-      <span className="delete" onClick={handleDeleteClick}>
-        ❌
-      </span>
+      <div className="actions">
+        <span className="delete" onClick={handleDeleteClick}>
+          ❌
+        </span>
+
+        <span onClick={toggleEditingMode}>✏️</span>
+      </div>
     </div>
   );
 }

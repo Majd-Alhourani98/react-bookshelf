@@ -15,7 +15,13 @@ function BookShow({ book, onDeleteBook, onEditBook }) {
   let content = <h3>{book.title}</h3>;
 
   if (isEditingMode) {
-    content = <BookEdit book={book} onEditBook={onEditBook} />;
+    content = (
+      <BookEdit
+        book={book}
+        onEditBook={onEditBook}
+        onToggleEditingMode={toggleEditingMode}
+      />
+    );
   }
 
   return (

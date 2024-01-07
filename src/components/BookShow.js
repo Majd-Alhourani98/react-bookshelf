@@ -15,7 +15,7 @@ function BookShow({ book, onDeleteBook }) {
   let content = <h3>{book.title}</h3>;
 
   if (isEditingMode) {
-    content = <BookEdit />;
+    content = <BookEdit book={book} />;
   }
 
   return (

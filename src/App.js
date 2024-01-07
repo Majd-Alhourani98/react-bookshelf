@@ -15,7 +15,6 @@ function App() {
   }
 
   function deleteBook(id) {
-    console.log(id);
     const updatedBook = books.filter((book) => book.id !== id);
     setBooks(updatedBook);
   }
